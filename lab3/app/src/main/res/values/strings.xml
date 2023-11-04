@@ -1,3 +1,6 @@
 <resources>
-    <string name="app_name">Lab 3</string>
+    <string name="app_name">TableLayoutTest</string>
+    <string name="hint_android_version">Enter the version of Android</string>
+    <string name="hint_android_code_name">Enter Android Code Name</string>
+    <string name="btn_add">Add</string>
 </resources>
