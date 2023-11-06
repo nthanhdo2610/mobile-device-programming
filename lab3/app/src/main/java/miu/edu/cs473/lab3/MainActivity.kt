@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
         val codeName = binding.editTextCodeName.text.toString()
 
         if (version.isNotEmpty() && codeName.isNotEmpty()) {
+
             val row = TableRow(this)
             val rowParams =
                 TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT)
