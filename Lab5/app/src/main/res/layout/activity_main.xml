@@ -6,7 +6,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".view.MainActivity">
 
     <ImageView
             android:id="@+id/imvLogo"
@@ -39,7 +39,7 @@
             app:layout_constraintTop_toTopOf="@+id/imvLogo">
 
         <TextView
-                android:id="@+id/tvEmailAddress"
+                android:id="@+id/tvEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="40dp"
@@ -49,19 +49,19 @@
                 app:layout_constraintTop_toTopOf="parent"/>
 
         <EditText
-                android:id="@+id/etEmailAddress"
+                android:id="@+id/etEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="30dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginEnd="30dp"
                 android:background="@drawable/bg_curved_grey"
-                android:inputType="textEmailAddress"
                 android:minHeight="45dp"
                 android:padding="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvEmailAddress"/>
+                app:layout_constraintTop_toBottomOf="@id/tvEmail"
+                android:inputType="textEmailAddress"/>
         <TextView
                 android:id="@+id/tvPassword"
                 android:layout_width="match_parent"
@@ -71,7 +71,7 @@
                 android:text="@string/txt_password_required"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/etEmailAddress"/>
+                app:layout_constraintTop_toBottomOf="@id/etEmail"/>
 
         <EditText
                 android:id="@+id/etPassword"
