@@ -24,17 +24,16 @@ class MainActivity : AppCompatActivity() {
         if (!this::users.isInitialized) {
             users = ArrayList()
         }
-        users.add(User("Domenic", "Nguyen", "domenic@gmail.com", "00000"))
-        users.add(User("Ruby", "Nguyen", "ruby@gmail.com", "00000"))
-        users.add(User("Miley", "Le", "miley@gmail.com", "00000"))
-        users.add(User("Say", "Nguyen", "say@gmail.com", "00000"))
-        users.add(User("Nick", "Taco", "nick@gmail.com", "00000"))
+        users.add(User("Domenic", "Nguyen", "domenic@gmail.com", "1"))
+        users.add(User("Ruby", "Nguyen", "ruby@gmail.com", "1"))
+        users.add(User("Miley", "Le", "miley@gmail.com", "1"))
+        users.add(User("Say", "Nguyen", "say@gmail.com", "1"))
+        users.add(User("Nick", "Taco", "nick@gmail.com", "1"))
 
-        //update new user from signup activity
-//        val newUser = intent.getSerializableExtra("newUser", User::class.java)
-//        if (newUser != null) {
-//            users.add(newUser)
-//        }
+        val newUser = intent.getSerializableExtra("newUser", User::class.java)
+        if (newUser != null) {
+            users.add(newUser)
+        }
     }
 
     fun onSignIn(view: View) {
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onSignUp(view: View) {
-
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 
     private fun showToast(message: String) {
