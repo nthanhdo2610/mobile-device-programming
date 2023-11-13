@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Lab 7</string>
+    <string name="app_name">Electronics</string>
+    <string name="txt_add">Add</string>
+    <string name="txt_view_cart">View Cart</string>
+    <string name="txt_product_detail">Product detail</string>
+    <string name="txt_home">Home</string>
 </resources>
