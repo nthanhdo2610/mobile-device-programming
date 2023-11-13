@@ -1,15 +1,16 @@
 package miu.edu.cs473.lab7.view
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import miu.edu.cs473.lab7.R
 import miu.edu.cs473.lab7.adapter.ProductAdapter
 import miu.edu.cs473.lab7.databinding.ActivityMainBinding
 import miu.edu.cs473.lab7.model.Product
+import miu.edu.cs473.lab7.model.ProductList
 
 class MainActivity : AppCompatActivity(), ProductListener {
 
@@ -26,9 +27,12 @@ class MainActivity : AppCompatActivity(), ProductListener {
     }
 
     private fun initView() {
+        // Check if productAdapter is not initialized
         if (!this::productAdapter.isInitialized) {
             productAdapter = ProductAdapter(this)
         }
+
+        // Check if listProducts is not initialized
         if (!this::listProducts.isInitialized) {
             listProducts = ArrayList()
         }
@@ -36,21 +40,22 @@ class MainActivity : AppCompatActivity(), ProductListener {
         binding.rvElectronics.adapter = productAdapter
         binding.rvElectronics.layoutManager = LinearLayoutManager(this)
 
-        productAdapter.setData(Product.createProducts())
+        // Use string resources for product data
+        productAdapter.setData(this.createProducts())
     }
 
     fun onViewCart(view: View) {
         val total = listProducts.size
-        showToast("Your cart has $total products")
+        showToast(getString(R.string.cart_message, total))
     }
 
     override fun selectProduct(product: Product) {
         if (!listProducts.contains(product)) {
             listProducts.add(product)
-            //update cart
+            // Update cart
             updateCart()
         }
-        showToast("${product.name} has been added to your cart")
+        showToast(getString(R.string.product_added_message, product.name))
     }
 
     override fun viewProduct(product: Product) {
@@ -65,10 +70,30 @@ class MainActivity : AppCompatActivity(), ProductListener {
 
     private fun updateCart() {
         val total = listProducts.size
-        if (total > 0) {
-            binding.btnViewCart.setText("${resources.getString(R.string.txt_view_cart)}(${total})")
+        val buttonText = if (total > 0) {
+            getString(R.string.view_cart_button, total)
         } else {
-            binding.btnViewCart.setText(resources.getString(R.string.txt_view_cart))
+            getString(R.string.view_cart_button_empty)
         }
+        binding.btnViewCart.text = buttonText
     }
+
+    private fun createProducts(): ProductList = ProductList(
+        listOf(
+            Product(
+                "iPhone", "iPhone 15 and iPhone 15 Plus. \nDynamic Island. \n48MP Main camera with 2x Telephoto",
+                999.99, R.drawable.iphone, R.drawable.icon_iphone
+            ),
+
+            Product(
+                "iPad", "Apple 2023 iPad Pro 12.9” \n6th Gen 256G, Pencil 2, Magic Keyboard \nElectronics | Color: Grey | Size: xs",
+                1199.99, R.drawable.ipad, R.drawable.icon_ipad
+            ),
+
+            Product(
+                "Macbook", "Apple MacBook Air 15-inch \nM2 Chip with 8-Core CPU",
+                1999.99, R.drawable.macbook, R.drawable.icon_macbook
+            )
+        )
+    )
 }

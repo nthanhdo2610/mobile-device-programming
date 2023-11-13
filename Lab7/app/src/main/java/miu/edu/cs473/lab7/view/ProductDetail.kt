@@ -1,13 +1,12 @@
 package miu.edu.cs473.lab7.view
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import miu.edu.cs473.lab7.R
 import miu.edu.cs473.lab7.databinding.ActivityProductDetailBinding
 import miu.edu.cs473.lab7.model.Product
 import java.text.DecimalFormat
-
 
 class ProductDetail : AppCompatActivity() {
 
@@ -24,13 +23,12 @@ class ProductDetail : AppCompatActivity() {
 
     private fun initView() {
         val product = intent.getParcelableExtra("currentProduct", Product::class.java)
-        if (product == null) {
-            return
+        product?.apply {
+            binding.imv.setImageResource(image)
+            binding.tvName.text = name
+            binding.tvDesc.text = desc
+            binding.tvPrice.text = getString(R.string.price_format, DecimalFormat("#,###.0").format(price))
         }
-        binding.imv.setImageResource(product.image)
-        binding.tvName.setText(product.name)
-        binding.tvDesc.setText(product.desc)
-        binding.tvPrice.setText("$ ${DecimalFormat("#,###.0").format(product.price)}")
     }
 
     fun onHome(view: View) {

@@ -1,7 +1,14 @@
 <resources>
     <string name="app_name">Electronics</string>
+    <!-- Toast Messages -->
+    <string name="cart_message">Your cart has %d products</string>
+    <string name="product_added_message">%s has been added to your cart</string>
+
+    <!-- Button Texts -->
+    <string name="view_cart_button">View Cart (%d)</string>
+    <string name="view_cart_button_empty">View Cart</string>
+    <string name="price_format">$ %s</string>
     <string name="txt_add">Add</string>
-    <string name="txt_view_cart">View Cart</string>
     <string name="txt_product_detail">Product detail</string>
     <string name="txt_home">Home</string>
 </resources>
