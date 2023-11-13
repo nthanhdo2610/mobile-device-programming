@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Quiz App</string>
+    <string name="reset">Reset</string>
+    <string name="submit">Submit</string>
+    <string name="txt_title">Kotlin fundamental questions</string>
+    <string name="txt_q1">Question 1: What is the primary function of the main function in a Kotlin program?</string>
+    <string name="txt_q1_opt_1">A. Print statements</string>
+    <string name="txt_q1_opt_2">B. Entry point of the program</string>
+    <string name="txt_q1_opt_3">C. Define variables</string>
+    <string name="txt_q1_opt_4">D. Create classes</string>
+    <string name="txt_q2">Question 2: Which of the following are valid ways to declare a variable in Kotlin? (Choose multiple)</string>
+    <string name="txt_q2_opt_1">A. var x: Int = 10</string>
+    <string name="txt_q2_opt_2">B. val y = "Hello"</string>
+    <string name="txt_q2_opt_3">C. const val z = 5</string>
+    <string name="txt_q2_opt_4">D. var w: String = null</string>
+</resources>
