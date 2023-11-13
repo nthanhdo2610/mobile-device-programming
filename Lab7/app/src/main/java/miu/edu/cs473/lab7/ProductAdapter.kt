@@ -1,14 +1,10 @@
-package miu.edu.cs473.lab7.adapter
+package miu.edu.cs473.lab7
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import miu.edu.cs473.lab7.R
 import miu.edu.cs473.lab7.databinding.ProductItemBinding
-import miu.edu.cs473.lab7.model.Product
-import miu.edu.cs473.lab7.model.ProductList
-import miu.edu.cs473.lab7.view.ProductListener
 import java.text.DecimalFormat
 
 class ProductAdapter(private val listener: ProductListener) :

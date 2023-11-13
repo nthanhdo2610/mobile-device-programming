@@ -1,4 +1,4 @@
-package miu.edu.cs473.lab7.view
+package miu.edu.cs473.lab7
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,11 +6,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import miu.edu.cs473.lab7.R
-import miu.edu.cs473.lab7.adapter.ProductAdapter
 import miu.edu.cs473.lab7.databinding.ActivityMainBinding
-import miu.edu.cs473.lab7.model.Product
-import miu.edu.cs473.lab7.model.ProductList
 
 class MainActivity : AppCompatActivity(), ProductListener {
 

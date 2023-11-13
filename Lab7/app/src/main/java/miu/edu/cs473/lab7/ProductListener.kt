@@ -1,6 +1,4 @@
-package miu.edu.cs473.lab7.view
-
-import miu.edu.cs473.lab7.model.Product
+package miu.edu.cs473.lab7
 
 interface ProductListener {
     fun selectProduct(product: Product)

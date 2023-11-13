@@ -1,11 +1,9 @@
-package miu.edu.cs473.lab7.view
+package miu.edu.cs473.lab7
 
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import miu.edu.cs473.lab7.R
 import miu.edu.cs473.lab7.databinding.ActivityProductDetailBinding
-import miu.edu.cs473.lab7.model.Product
 import java.text.DecimalFormat
 
 class ProductDetail : AppCompatActivity() {
