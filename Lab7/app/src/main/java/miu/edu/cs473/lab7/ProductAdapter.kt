@@ -33,7 +33,7 @@ class ProductAdapter(private val listener: ProductListener) :
         this.notifyDataSetChanged()
     }
 
-    class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ProductViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ProductItemBinding.bind(view)
         private val formatNumber = DecimalFormat("#,###.0")
 

@@ -15,7 +15,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@id/btnViewCart"
-            tools:listitem="@layout/product_item" app:layout_constraintTop_toTopOf="parent"/>
+            tools:listitem="@layout/product_item"
+            app:layout_constraintTop_toTopOf="parent"/>
 
     <Button
             android:id="@+id/btnViewCart"
