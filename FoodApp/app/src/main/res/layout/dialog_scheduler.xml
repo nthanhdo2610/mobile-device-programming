@@ -8,195 +8,183 @@
         tools:context=".view.dialog.MealDialog"
         android:background="@color/orange">
 
-    <androidx.core.widget.NestedScrollView
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
+    <!-- Title TextView -->
+    <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/meal_scheduler"
+            android:textColor="@color/teal_700"
+            android:textSize="25sp"
+            android:textStyle="bold"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+    <!-- Date TextView -->
+    <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="25dp"
+            android:text="@string/date"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvTitle"/>
 
-            <!-- Title TextView -->
-            <TextView
-                    android:id="@+id/tvTitle"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="@string/meal_scheduler"
-                    android:textColor="@color/teal_700"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent" />
+    <!-- Selected Date EditText -->
+    <EditText
+            android:id="@+id/tvSelectedDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_curved_grey"
+            android:minHeight="45dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"/>
 
-            <!-- Date TextView -->
-            <TextView
-                    android:id="@+id/tvDate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="25dp"
-                    android:text="@string/date"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvTitle" />
+    <!-- Dropdown ImageView -->
+    <ImageView
+            android:id="@+id/imvDropdown"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="40dp"
+            android:src="@drawable/dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDate"/>
 
-            <!-- Selected Date EditText -->
-            <EditText
-                    android:id="@+id/tvSelectedDate"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/bg_curved_grey"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDate" />
+    <!-- Breakfast TextView -->
+    <TextView
+            android:id="@+id/tvBreakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/breakfast"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvSelectedDate"/>
 
-            <!-- Dropdown ImageView -->
-            <ImageView
-                    android:id="@+id/imvDropdown"
-                    android:layout_width="22dp"
-                    android:layout_height="22dp"
-                    android:layout_marginTop="18dp"
-                    android:layout_marginEnd="40dp"
-                    android:src="@drawable/dropdown"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDate" />
+    <!-- Breakfast EditText -->
+    <EditText
+            android:id="@+id/etBreakfast"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_curved_grey"
+            android:inputType="textCapWords"
+            android:minHeight="45dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvBreakfast"/>
 
-            <!-- Breakfast TextView -->
-            <TextView
-                    android:id="@+id/tvBreakfast"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/breakfast"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvSelectedDate" />
+    <!-- Lunch TextView -->
+    <TextView
+            android:id="@+id/tvLunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/lunch"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etBreakfast"/>
 
-            <!-- Breakfast EditText -->
-            <EditText
-                    android:id="@+id/etBreakfast"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/bg_curved_grey"
-                    android:inputType="textCapWords"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvBreakfast" />
+    <!-- Lunch EditText -->
+    <EditText
+            android:id="@+id/etLunch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_curved_grey"
+            android:inputType="textCapWords"
+            android:minHeight="45dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvLunch"/>
 
-            <!-- Lunch TextView -->
-            <TextView
-                    android:id="@+id/tvLunch"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/lunch"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etBreakfast" />
+    <!-- Dinner TextView -->
+    <TextView
+            android:id="@+id/tvDinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/dinner"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etLunch"/>
 
-            <!-- Lunch EditText -->
-            <EditText
-                    android:id="@+id/etLunch"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/bg_curved_grey"
-                    android:inputType="textCapWords"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvLunch" />
+    <!-- Dinner EditText -->
+    <EditText
+            android:id="@+id/etDinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="7dp"
+            android:layout_marginEnd="30dp"
+            android:background="@drawable/bg_curved_grey"
+            android:inputType="textCapWords"
+            android:minHeight="45dp"
+            android:padding="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvDinner"/>
 
-            <!-- Dinner TextView -->
-            <TextView
-                    android:id="@+id/tvDinner"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="15dp"
-                    android:text="@string/dinner"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etLunch" />
+    <!-- Buttons Layout -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/etDinner">
 
-            <!-- Dinner EditText -->
-            <EditText
-                    android:id="@+id/etDinner"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="30dp"
-                    android:layout_marginTop="7dp"
-                    android:layout_marginEnd="30dp"
-                    android:background="@drawable/bg_curved_grey"
-                    android:inputType="textCapWords"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/tvDinner" />
+        <!-- Cancel Button -->
+        <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="@string/cancel"
+                android:textAllCaps="false"
+                android:textStyle="bold"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/teal_700"
+                android:textSize="25sp"/>
 
-            <!-- Buttons Layout -->
-            <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/etDinner">
+        <!-- Add Button -->
+        <Button
+                android:id="@+id/btnAdd"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="30dp"
+                android:layout_marginBottom="20dp"
+                android:layout_weight="1"
+                android:padding="10dp"
+                android:text="@string/add"
+                android:textAllCaps="false"
+                android:textStyle="bold"
 
-                <!-- Cancel Button -->
-                <Button
-                        android:id="@+id/btnCancel"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:text="@string/cancel"
-                        android:textAllCaps="false"
-                        android:textStyle="bold"
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/teal_700"
-                        android:textSize="25sp"/>
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/teal_700"
+                android:textSize="25sp"/>
 
-                <!-- Add Button -->
-                <Button
-                        android:id="@+id/btnAdd"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginBottom="20dp"
-                        android:layout_weight="1"
-                        android:padding="10dp"
-                        android:text="@string/add"
-                        android:textAllCaps="false"
-                        android:textStyle="bold"
+    </LinearLayout>
 
-                        android:layout_marginTop="20dp"
-                        android:backgroundTint="@color/teal_700"
-                        android:textSize="25sp"/>
-
-            </LinearLayout>
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>

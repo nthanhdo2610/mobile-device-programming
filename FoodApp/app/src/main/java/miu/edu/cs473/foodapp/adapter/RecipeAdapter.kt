@@ -48,7 +48,6 @@ class RecipeAdapter(val listener: RecipeListener) : RecyclerView.Adapter<RecipeA
     class RecipeViewHolder(view: View) : ViewHolder(view) {
         private val imv: ImageView = view.findViewById(R.id.imv)
         private val tvName: TextView = view.findViewById(R.id.tvName)
-        private val tvIngredients: TextView = view.findViewById(R.id.tvIngredients)
         private val tvInstructions: TextView = view.findViewById(R.id.tvInstructions)
         private val tvRatings: TextView = view.findViewById(R.id.tvRatings)
         private val tvDetail: TextView = view.findViewById(R.id.tvDetail)
@@ -64,7 +63,6 @@ class RecipeAdapter(val listener: RecipeListener) : RecyclerView.Adapter<RecipeA
                 }
             }
             tvName.text = recipe.name
-            tvIngredients.text = recipe.ingredients
             tvInstructions.text = recipe.instructions
             tvRatings.text = "${recipe.rating}-star"
             tvDetail.isGone = recipe.url.isNullOrEmpty()

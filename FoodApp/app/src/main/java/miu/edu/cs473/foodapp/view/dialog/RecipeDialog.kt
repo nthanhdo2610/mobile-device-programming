@@ -61,11 +61,6 @@ class RecipeDialog(private val listener: DialogListener) : DialogFragment() {
             showToast("Please input name")
             return
         }
-        val ingredients = binding.etIngredients.text.toString().trim()
-        if (ingredients.isEmpty()) {
-            showToast("Please input ingredients")
-            return
-        }
         val instructions = binding.etInstructions.text.toString().trim()
         if (instructions.isEmpty()) {
             showToast("Please input instructions")
@@ -82,7 +77,6 @@ class RecipeDialog(private val listener: DialogListener) : DialogFragment() {
         listener.addRecipe(
             RecipeModel(
                 name,
-                ingredients,
                 instructions,
                 rating,
                 R.drawable.book,

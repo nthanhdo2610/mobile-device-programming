@@ -40,7 +40,7 @@ class MainPageAdapter(
         }
     }
 
-    fun getCurrentItem(): Int = viewPager.currentItem
+    private fun getCurrentItem(): Int = viewPager.currentItem
 
     fun onAdd() {
         getCurrentFragment().onAdd()
