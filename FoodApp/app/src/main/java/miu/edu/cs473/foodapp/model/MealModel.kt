@@ -3,7 +3,7 @@ package miu.edu.cs473.foodapp.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class SchedulerModel(
+data class MealModel(
     val name: String,
     val meal: String
 ) : Parcelable {
@@ -20,11 +20,11 @@ data class SchedulerModel(
 
     override fun describeContents(): Int = 0
 
-    companion object CREATOR : Parcelable.Creator<SchedulerModel> {
-        override fun createFromParcel(parcel: Parcel): SchedulerModel =
-            SchedulerModel(parcel)
+    companion object CREATOR : Parcelable.Creator<MealModel> {
+        override fun createFromParcel(parcel: Parcel): MealModel =
+            MealModel(parcel)
 
-        override fun newArray(size: Int): Array<SchedulerModel?> =
+        override fun newArray(size: Int): Array<MealModel?> =
             arrayOfNulls(size)
     }
 }

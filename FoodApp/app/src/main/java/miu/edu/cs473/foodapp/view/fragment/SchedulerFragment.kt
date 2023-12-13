@@ -13,7 +13,7 @@ import miu.edu.cs473.foodapp.databinding.FragmentSchedulerBinding
 import miu.edu.cs473.foodapp.listener.BaseFragmentListener
 import miu.edu.cs473.foodapp.listener.DialogListener
 import miu.edu.cs473.foodapp.model.MealSchedulerModel
-import miu.edu.cs473.foodapp.view.dialog.SchedulerDialog
+import miu.edu.cs473.foodapp.view.dialog.MealDialog
 
 class SchedulerFragment : Fragment(), DialogListener, BaseFragmentListener {
     private var param1: String? = null
@@ -51,8 +51,8 @@ class SchedulerFragment : Fragment(), DialogListener, BaseFragmentListener {
     }
 
     override fun onAdd() {
-        val dialog = SchedulerDialog(this)
-        dialog.show(parentFragmentManager, SchedulerDialog::class.java.name)
+        val dialog = MealDialog(this)
+        dialog.show(parentFragmentManager, MealDialog::class.java.name)
     }
 
     private fun initViews() {

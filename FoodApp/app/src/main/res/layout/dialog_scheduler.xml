@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".view.dialog.SchedulerDialog"
+        tools:context=".view.dialog.MealDialog"
         android:background="@color/orange">
 
     <androidx.core.widget.NestedScrollView

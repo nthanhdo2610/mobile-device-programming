@@ -15,7 +15,7 @@ class SchedulerAdapter : RecyclerView.Adapter<SchedulerAdapter.MealSchedulerView
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MealSchedulerViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.item_scheduler, parent, false)
+            .inflate(R.layout.item_meal, parent, false)
         return MealSchedulerViewHolder(view)
     }
 

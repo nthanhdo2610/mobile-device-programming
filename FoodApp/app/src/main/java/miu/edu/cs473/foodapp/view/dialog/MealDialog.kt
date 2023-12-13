@@ -11,11 +11,11 @@ import androidx.fragment.app.DialogFragment
 import miu.edu.cs473.foodapp.databinding.DialogSchedulerBinding
 import miu.edu.cs473.foodapp.listener.DialogListener
 import miu.edu.cs473.foodapp.model.MealSchedulerModel
-import miu.edu.cs473.foodapp.model.SchedulerModel
+import miu.edu.cs473.foodapp.model.MealModel
 import java.text.SimpleDateFormat
 import java.util.*
 
-class SchedulerDialog(private val listener: DialogListener) : DialogFragment() {
+class MealDialog(private val listener: DialogListener) : DialogFragment() {
 
     private lateinit var binding: DialogSchedulerBinding
     private val calendar = Calendar.getInstance()
@@ -64,10 +64,10 @@ class SchedulerDialog(private val listener: DialogListener) : DialogFragment() {
             return
         }
 
-        val meals = mutableListOf<SchedulerModel>().apply {
-            if (breakfast.isNotEmpty()) add(SchedulerModel("Breakfast", breakfast))
-            if (lunch.isNotEmpty()) add(SchedulerModel("Lunch", lunch))
-            if (dinner.isNotEmpty()) add(SchedulerModel("Dinner", dinner))
+        val meals = mutableListOf<MealModel>().apply {
+            if (breakfast.isNotEmpty()) add(MealModel("Breakfast", breakfast))
+            if (lunch.isNotEmpty()) add(MealModel("Lunch", lunch))
+            if (dinner.isNotEmpty()) add(MealModel("Dinner", dinner))
         }
 
         val scheduler = MealSchedulerModel(selectedDate ?: Date(), meals)

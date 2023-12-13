@@ -6,12 +6,12 @@ import java.util.*
 
 data class MealSchedulerModel(
     val date: Date,
-    val meals: MutableList<SchedulerModel>?
+    val meals: MutableList<MealModel>?
 ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
         Date(parcel.readLong()),
-        parcel.createTypedArrayList(SchedulerModel.CREATOR)
+        parcel.createTypedArrayList(MealModel.CREATOR)
     )
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
@@ -35,15 +35,15 @@ data class MealSchedulerModel(
                 createMealScheduler(
                     Date(calendar.timeInMillis + 2.daysInMillis),
                     listOf(
-                        SchedulerModel("Breakfast", "Bánh Mì ! (Vietnamese sandwich)"),
-                        SchedulerModel("Lunch", "Vietnamese Phở"),
-                        SchedulerModel("Dinner", "Cơm Tấm (Vietnamese Broken Rice)")
+                        MealModel("Breakfast", "Bánh Mì ! (Vietnamese sandwich)"),
+                        MealModel("Lunch", "Vietnamese Phở"),
+                        MealModel("Dinner", "Cơm Tấm (Vietnamese Broken Rice)")
                     )
                 )
             )
         }
 
-        private fun createMealScheduler(date: Date, meals: List<SchedulerModel>?): MealSchedulerModel =
+        private fun createMealScheduler(date: Date, meals: List<MealModel>?): MealSchedulerModel =
             MealSchedulerModel(date, meals?.toMutableList())
 
         private val Int.daysInMillis: Long
