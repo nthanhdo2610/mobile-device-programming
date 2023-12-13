@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun initTabLayout() {
         val tabTitles = listOf(
-            R.string.recipes,
+            R.string.recipe,
             R.string.meal_scheduler,
             R.string.blog,
             R.string.contact,
