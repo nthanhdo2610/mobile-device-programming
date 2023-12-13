@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.SignInActivity"
+        android:background="@color/orange">
+
+    <!-- Sign-in TextView -->
+    <TextView
+            android:id="@+id/tvSignin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/sign_in_to_your_account"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:layout_marginTop="30dp"
+            android:textColor="@color/teal_700"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- NestedScrollView for Sign-in Form -->
+    <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tvSignin"
+            app:layout_constraintBottom_toTopOf="@+id/viewSignup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- ConstraintLayout for Sign-in Form -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            <!-- Email Address TextView -->
+            <TextView
+                    android:id="@+id/tvEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:text="@string/email_address_required"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Email Address EditText -->
+            <EditText
+                    android:id="@+id/etEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/bg_curved_grey"
+                    android:inputType="textEmailAddress"
+                    android:minHeight="45dp"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvEmailAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:autofillHints=""/>
+
+            <!-- Password TextView -->
+            <TextView
+                    android:id="@+id/tvPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="15dp"
+                    android:text="@string/password_required"
+                    app:layout_constraintTop_toBottomOf="@id/etEmailAddress"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Password EditText -->
+            <EditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="30dp"
+                    android:background="@drawable/bg_curved_grey"
+                    android:inputType="textPassword"
+                    android:minHeight="45dp"
+                    android:padding="10dp"
+                    app:layout_constraintTop_toBottomOf="@id/tvPassword"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:autofillHints=""/>
+
+            <!-- Forgot Password TextView -->
+            <TextView
+                    android:id="@+id/tvForgotPassword"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="30dp"
+                    android:autoLink="all"
+                    android:clickable="true"
+                    android:onClick="onOpenEmail"
+                    android:text="@string/forgot_password"
+                    android:textColor="@color/cyan_200"
+                    app:layout_constraintTop_toBottomOf="@id/etPassword"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+            <!-- Sign-in Button -->
+            <Button
+                    android:id="@+id/btnSignin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="30dp"
+                    android:backgroundTint="@color/teal_700"
+                    android:onClick="onSignin"
+                    android:padding="10dp"
+                    android:text="@string/sign_in"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toBottomOf="@id/tvForgotPassword"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <!-- Sign-up Section -->
+    <LinearLayout
+            android:id="@+id/viewSignup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@id/btnSignup">
+
+        <!-- Line Divider -->
+        <ImageView
+                android:id="@+id/imvLine1"
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:src="@color/mater_grey_400"/>
+
+        <!-- "Don't have an account" TextView -->
+        <TextView
+                android:id="@+id/tvDonotHaveAccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="12dp"
+                android:text="@string/dont_have_an_account"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="17sp"
+                android:textStyle="bold"/>
+
+        <!-- Line Divider -->
+        <ImageView
+                android:layout_width="0dp"
+                android:layout_height="2dp"
+                android:layout_weight="1"
+                android:src="@color/mater_grey_400"/>
+
+    </LinearLayout>
+
+    <!-- Sign-up Button -->
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnSignup"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/bg_btn_signup"
+            android:onClick="onSignup"
+            android:padding="10dp"
+            android:text="@string/create_a_new_account"
+            android:textAllCaps="false"
+            android:textColor="@color/teal_700"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
