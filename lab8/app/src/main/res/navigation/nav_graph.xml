@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/nav_graph"
+            app:startDestination="@id/gardenLogFragment">
+
+    <fragment
+            android:id="@+id/gardenLogFragment"
+            android:name="miu.edu.cs473.lab8.view.fragment.GardenLogFragment"
+            android:label="@string/app_name"
+            tools:layout="@layout/fragment_garden_log" >
+        <action
+                android:id="@+id/navigate_GardenLog_to_PlantDetail"
+                app:destination="@id/plantDetailFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out"
+        />
+    </fragment>
+
+    <fragment
+            android:id="@+id/plantDetailFragment"
+            android:name="miu.edu.cs473.lab8.view.fragment.PlantDetailsFragment"
+            android:label="Plant Details"
+            tools:layout="@layout/fragment_plant_detail" >
+        <action
+                android:id="@+id/navigate_PlantDetail_to_GardenLog"
+                app:destination="@id/gardenLogFragment"
+                app:enterAnim="@android:anim/fade_in"
+                app:exitAnim="@android:anim/fade_out"
+        />
+        <argument
+                android:name="plantId"
+                app:argType="integer"
+                android:defaultValue="0" />
+    </fragment>
+
+</navigation>
