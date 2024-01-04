@@ -18,10 +18,10 @@
                     android:id="@+id/tvTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
+                    android:layout_marginTop="@dimen/margin_top"
                     android:text="Add a Plant"
                     android:textColor="@color/green"
-                    android:textSize="25sp"
+                    android:textSize="@dimen/text_size_large"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -121,13 +121,14 @@
                     android:layout_marginTop="7dp"
                     android:layout_marginEnd="30dp"
                     android:background="@drawable/bg_curved_grey"
-                    android:minHeight="45dp"
-                    android:padding="10dp"
+                    android:minHeight="@dimen/min_height"
+                    android:padding="@dimen/padding"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/tvPlantingDate"
                     android:imeOptions="actionDone"
                     android:inputType="text"
+                    android:hint="Selected Date"
                     tools:ignore="TextViewEdits"/>
 
             <ImageView
@@ -143,7 +144,7 @@
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="30dp"
+                    android:layout_marginTop="@dimen/margin_top"
                     android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -152,32 +153,32 @@
 
                 <Button
                         android:id="@+id/btnCancel"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="30dp"
-                        android:layout_marginEnd="15dp"
-                        android:layout_marginBottom="20dp"
+                        android:layout_marginStart="@dimen/margin_start"
+                        android:layout_marginEnd="@dimen/margin_end"
+                        android:layout_marginBottom="@dimen/margin_bottom"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="@dimen/padding"
                         android:text="Cancel"
                         android:textAllCaps="false"
                         android:backgroundTint="@color/gray"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_large"
                         android:textStyle="bold"/>
 
                 <Button
                         android:id="@+id/btnAdd"
-                        android:layout_width="match_parent"
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="15dp"
-                        android:layout_marginEnd="30dp"
-                        android:layout_marginBottom="20dp"
+                        android:layout_marginStart="@dimen/margin_start"
+                        android:layout_marginEnd="@dimen/margin_end"
+                        android:layout_marginBottom="@dimen/margin_bottom"
                         android:backgroundTint="@color/teal_700"
                         android:layout_weight="1"
-                        android:padding="10dp"
+                        android:padding="@dimen/padding"
                         android:text="Add"
                         android:textAllCaps="false"
-                        android:textSize="18sp"
+                        android:textSize="@dimen/text_size_large"
                         android:textStyle="bold"/>
 
             </LinearLayout>

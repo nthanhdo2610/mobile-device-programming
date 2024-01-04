@@ -22,19 +22,13 @@ class PlantDialog(var listener: DialogListener) : DialogFragment() {
 
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         binding = DialogPlantBinding.inflate(layoutInflater)
-
-        val builder = AlertDialog.Builder(requireContext())
-        builder.setView(binding.root)
-            .setPositiveButton("Add") { _, _ ->
-                addPlant()
-            }
-            .setNegativeButton("Cancel") { _, _ ->
-                dismiss()
-            }
-
+        val dialog = activity?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.setView(binding.root)
+            builder.create()
+        } ?: throw IllegalStateException("Error!!!")
         initViews()
-
-        return builder.create()
+        return dialog
     }
 
     private fun initViews() {
@@ -42,6 +36,12 @@ class PlantDialog(var listener: DialogListener) : DialogFragment() {
 
         binding.tvSelectedDate.setOnClickListener {
             showDatePicker()
+        }
+        binding.btnCancel.setOnClickListener {
+            dismiss()
+        }
+        binding.btnAdd.setOnClickListener {
+            addPlant()
         }
     }
 

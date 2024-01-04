@@ -28,6 +28,7 @@ class GardenLogAdapter(private val listener: GardenLogListener) : RecyclerView.A
     }
 
     fun setData(list: List<Plant>) {
+        dataSet.clear()
         dataSet.addAll(list)
         notifyDataSetChanged()
     }

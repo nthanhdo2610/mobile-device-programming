@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Margins -->
+    <dimen name="margin_start">16dp</dimen>
+    <dimen name="margin_top">16dp</dimen>
+    <dimen name="margin_end">16dp</dimen>
+    <dimen name="margin_bottom">16dp</dimen>
+
+    <!-- Padding -->
+    <dimen name="padding">8dp</dimen>
+
+    <!-- Text Sizes -->
+    <dimen name="text_size_large">18sp</dimen>
+
+    <!-- Min Height for Views -->
+    <dimen name="min_height">45dp</dimen>
+
+</resources>
