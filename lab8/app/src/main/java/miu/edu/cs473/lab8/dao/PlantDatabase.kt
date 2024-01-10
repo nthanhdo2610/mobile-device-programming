@@ -8,7 +8,7 @@ import miu.edu.cs473.lab8.model.Plant
 
 @Database(
     entities = [Plant::class],
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 abstract class PlantDatabase : RoomDatabase() {
@@ -32,6 +32,6 @@ abstract class PlantDatabase : RoomDatabase() {
                 context.applicationContext,
                 PlantDatabase::class.java,
                 "plant_database"
-            ).build()
+            ).fallbackToDestructiveMigration().build()
     }
 }
