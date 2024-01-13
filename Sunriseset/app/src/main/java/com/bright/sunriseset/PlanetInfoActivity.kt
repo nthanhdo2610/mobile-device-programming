@@ -1,9 +1,11 @@
 package com.bright.sunriseset
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.icu.text.SimpleDateFormat
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import com.bright.sunriseset.databinding.ActivityMainBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -36,6 +38,9 @@ class PlanetInfoActivity : AppCompatActivity() {
         // Inflate the layout using View Binding
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Set Locale to Chinese
+        setLocale(Locale.SIMPLIFIED_CHINESE)
 
         // Get the current time
         val currentTime = LocalDateTime.now()
@@ -112,4 +117,27 @@ class PlanetInfoActivity : AppCompatActivity() {
             null
         }
     }
+
+    /**
+     * Sets the default locale for the application.
+     * @param locale The locale to be set.
+     */
+    private fun setLocale(locale: Locale) {
+        try {
+            // Set the default locale for the application
+            Locale.setDefault(locale)
+
+            // Update configuration with the specified locale
+            val config = resources.configuration
+            config.setLocale(locale)
+
+            // Update display metrics to ensure consistency
+            resources.updateConfiguration(config, resources.displayMetrics)
+
+        } catch (e: Exception) {
+            // Handle exceptions, if any
+            Log.e(TAG, "Error setting locale: ${e.message}")
+        }
+    }
+
 }
