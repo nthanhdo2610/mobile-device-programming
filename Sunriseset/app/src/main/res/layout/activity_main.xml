@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".PlanetInfoActivity">
+    tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textViewSunrise"
@@ -21,5 +21,33 @@
         android:text="@string/SunsetTime"
         android:textSize="18sp"
         android:layout_below="@id/textViewSunrise"/>
+
+    <EditText
+            android:id="@+id/editTextPref"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewSunset"
+            android:layout_margin="20dp"
+            android:hint="Enter text here"
+            android:inputType="text" />
+    <TextView
+            android:id="@+id/textViewPref"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:text="Stored Text will appear here"
+            android:layout_below="@id/editTextPref"
+            android:textSize="18sp" />
+
+    <Button
+            android:id="@+id/savePrefBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewPref"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:onClick="savePref"
+            android:text="Save Ref" />
 
 </RelativeLayout>
