@@ -1,0 +1,43 @@
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#90CAF9"
+        tools:context=".frag.SplashFragment">
+    <TextView
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:text="Splash Screen" />
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tvName"
+            android:textSize="30sp"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+    <TextView
+            android:id="@+id/tvAge"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    <Space
+            android:layout_width="match_parent"
+            android:layout_height="32dp"/>
+    <Button
+            android:layout_margin="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:id="@+id/home"
+            android:text="Home"/>
+</LinearLayout>
