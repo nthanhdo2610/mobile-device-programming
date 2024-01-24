@@ -20,13 +20,13 @@
             android:theme="@style/Theme.Sunriseset"
             android:usesCleartextTraffic="true"
             tools:targetApi="31">
-<!--        <activity android:name=".VideoRecordingActivity" android:exported="false"/>-->
-        <activity android:name=".AccessCameraGalleryActivity" android:exported="false"/>
+        <activity android:name=".VideoRecordingActivity" android:exported="false"/>
+<!--        <activity android:name=".AccessCameraGalleryActivity" android:exported="false"/>-->
         <activity android:name=".SharedPrefsActivity" android:exported="false"/>
         <activity android:name=".LocalizationActivity" android:exported="false"/>
         <activity android:name=".VideoPlayerActivity" android:exported="false"/>
 
-        <activity android:name=".VideoRecordingActivity" android:exported="true">
+        <activity android:name=".AccessCameraGalleryActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
