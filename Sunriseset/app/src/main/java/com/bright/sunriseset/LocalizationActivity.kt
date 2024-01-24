@@ -3,12 +3,10 @@ package com.bright.sunriseset
 import android.content.ContentValues.TAG
 import android.content.Context
 import android.icu.text.SimpleDateFormat
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import androidx.lifecycle.ViewModelProvider
-import com.bright.sunriseset.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.bright.sunriseset.databinding.ActivityLocalizationBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -20,48 +18,24 @@ import java.net.HttpURLConnection
 import java.net.URL
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.util.Locale
+import java.util.*
 
-class MainActivity : AppCompatActivity() {
+class LocalizationActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityMainBinding
-    private lateinit var myPrefsModel: MyPrefsViewModel
+    private lateinit var binding: ActivityLocalizationBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Inflate the layout using View Binding
-        binding = ActivityMainBinding.inflate(layoutInflater)
+        binding = ActivityLocalizationBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        // Initialize ViewModel
-        initViewModel()
-
 
         // Set Locale to Chinese
         setLocale(Locale.SIMPLIFIED_CHINESE)
 
         // Asynchronously fetch sunrise and sunset times
         fetchAPI()
-    }
-
-    private fun initViewModel() {
-        if (!::myPrefsModel.isInitialized) {
-            myPrefsModel = ViewModelProvider(this)[MyPrefsViewModel::class.java]
-            myPrefsModel.initModel(this@MainActivity)
-        }
-    }
-
-    fun savePref(view: View) {
-        val text = binding.editTextPref.text.toString()
-        myPrefsModel.saveData("my_prefs", text)
-        loadPref(view)
-    }
-
-    fun loadPref(view: View) {
-        val text = myPrefsModel.loadData("my_prefs");
-        binding.textViewPref.text = text
     }
 
 
@@ -91,8 +65,8 @@ class MainActivity : AppCompatActivity() {
             // If both sunrise and sunset times are available, localize and display them in Chinese
             if (sunriseTime != null && sunsetTime != null) {
                 // Localize sunrise and sunset times
-                val localizedSunrise = getLocalizedTime(sunriseTime, this@MainActivity)
-                val localizedSunset = getLocalizedTime(sunsetTime, this@MainActivity)
+                val localizedSunrise = getLocalizedTime(sunriseTime, this@LocalizationActivity)
+                val localizedSunset = getLocalizedTime(sunsetTime, this@LocalizationActivity)
 
                 // Display localized times on TextViews
                 binding.textViewSunrise.text =
