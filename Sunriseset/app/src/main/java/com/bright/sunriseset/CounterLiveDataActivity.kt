@@ -1,23 +1,22 @@
 package com.bright.sunriseset
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
+import com.bright.sunriseset.databinding.ActivityCounterLiveDataBinding
 import com.bright.sunriseset.databinding.ActivitySharedPrefsBinding
 import com.bright.sunriseset.vm.CounterLiveDataViewModel
 import com.bright.sunriseset.vm.SharedPrefsViewModel
 
-class SharedPrefsActivity : AppCompatActivity() {
-
-    private lateinit var binding: ActivitySharedPrefsBinding
-    private lateinit var sharedPrefsViewModel: SharedPrefsViewModel
+class CounterLiveDataActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityCounterLiveDataBinding
     private lateinit var counterLiveDataViewModel: CounterLiveDataViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Inflate the layout using View Binding
-        binding = ActivitySharedPrefsBinding.inflate(layoutInflater)
+        binding = ActivityCounterLiveDataBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
 
@@ -26,10 +25,6 @@ class SharedPrefsActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        if (!::sharedPrefsViewModel.isInitialized) {
-            sharedPrefsViewModel = ViewModelProvider(this)[SharedPrefsViewModel::class.java]
-            sharedPrefsViewModel.initModel(this@SharedPrefsActivity)
-        }
 
         // Livedata observer implementation
         if (!::counterLiveDataViewModel.isInitialized) {
@@ -41,10 +36,7 @@ class SharedPrefsActivity : AppCompatActivity() {
     }
 
 
-    fun savePref(view: View) {
-        val text = binding.editTextPref.text.toString()
-        sharedPrefsViewModel.saveData("my_prefs", text)
-        binding.textViewPref.text = sharedPrefsViewModel.loadData("my_prefs")
+    fun count(view: View) {
         counterLiveDataViewModel.updateCounter()
     }
 }

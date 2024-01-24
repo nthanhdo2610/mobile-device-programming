@@ -1,10 +1,10 @@
-package com.bright.sunriseset
+package com.bright.sunriseset.vm
 
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
 
-class MyPrefsViewModel : ViewModel() {
+class SharedPrefsViewModel : ViewModel() {
 
     private lateinit var myPrefs: SharedPreferences
 
