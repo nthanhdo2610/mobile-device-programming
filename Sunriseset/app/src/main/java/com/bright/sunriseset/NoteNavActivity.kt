@@ -1,25 +1,26 @@
 package com.bright.sunriseset
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 
-class MainNavActivity : AppCompatActivity() {
+class NoteNavActivity : AppCompatActivity() {
+
     // Declare Navigation Controller Object
-    private lateinit var mainNavController: NavController
+    private lateinit var noteNavController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_nav)
+        setContentView(R.layout.activity_note_nav)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        mainNavController = navHostFragment.navController
+        noteNavController = navHostFragment.navController
 
     }
 
     // override the onSupportNavigateUp() method to call navigateUp() in the navigation controller
     override fun onSupportNavigateUp(): Boolean {
-        return mainNavController.navigateUp()
+        return noteNavController.navigateUp()
     }
 }
