@@ -81,14 +81,14 @@ class AddNoteFragment : BaseNoteFragment() {
         AlertDialog.Builder(context).apply {
             setTitle("Are you sure?")
             setMessage("You cannot undo this operation")
-            setPositiveButton("Yes") { dialog, which ->
+            setPositiveButton("Yes") { _, _ ->
                 launch {
                     NoteDatabase(context).getNoteDao().deleteNote(note!!)
                     val action = AddNoteFragmentDirections.actionAddNoteFragmentToListNoteFragment()
                     Navigation.findNavController(requireView()).navigate(action)
                 }
             }
-            setNegativeButton("No") { dialog, which ->
+            setNegativeButton("No") { _, _ ->
 
             }
         }.create().show()

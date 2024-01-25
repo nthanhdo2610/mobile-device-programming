@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Sunriseset</string>
+    <string name="SunriseTime">Bình minh</string>
+    <string name="SunsetTime">Hoàn hôn</string>
+</resources>

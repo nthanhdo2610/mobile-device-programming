@@ -21,9 +21,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Sunriseset"
             android:usesCleartextTraffic="true">
-        <!--        <activity-->
-        <!--                android:name=".NoteNavActivity"-->
-        <!--                android:exported="false"/>-->
+                <activity
+                        android:name=".NoteNavActivity"
+                        android:exported="false"/>
         <activity
                 android:name=".MainNavActivity"
                 android:exported="false"/>
@@ -42,14 +42,14 @@
         <activity
                 android:name=".SharedPrefsActivity"
                 android:exported="false"/>
-        <activity
-                android:name=".LocalizationActivity"
-                android:exported="false"/>
+<!--        <activity-->
+<!--                android:name=".LocalizationActivity"-->
+<!--                android:exported="false"/>-->
         <activity
                 android:name=".VideoPlayerActivity"
                 android:exported="false"/>
         <activity
-                android:name=".NoteNavActivity"
+                android:name=".LocalizationActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
