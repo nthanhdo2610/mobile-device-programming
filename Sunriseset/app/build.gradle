@@ -17,6 +17,7 @@ android {
     }
 
     defaultConfig {
+        multiDexEnabled = true
         applicationId = 'com.bright.sunriseset'
         minSdk = 33
         targetSdk = 34
@@ -52,6 +53,7 @@ dependencies {
     apply plugin : 'kotlin-android'
     apply plugin : 'org.jetbrains.kotlin.plugin.parcelize'
 
+    implementation 'com.android.support:multidex:1.0.3'
     implementation 'androidx.core:core-ktx:1.12.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.11.0'

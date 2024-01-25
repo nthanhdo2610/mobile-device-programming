@@ -22,7 +22,7 @@ class SensorActivity : AppCompatActivity(), SensorEventListener {
     private lateinit var mp: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivitySensorBinding.inflate(layoutInflater);
+        binding = ActivitySensorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
