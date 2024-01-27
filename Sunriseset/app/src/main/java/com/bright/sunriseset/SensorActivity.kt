@@ -1,7 +1,6 @@
 package com.bright.sunriseset
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.hardware.Sensor
 import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
@@ -9,15 +8,12 @@ import android.hardware.SensorManager
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.widget.ListView
-import android.widget.Toast
 import com.bright.sunriseset.databinding.ActivitySensorBinding
 
 class SensorActivity : AppCompatActivity(), SensorEventListener {
 
     private lateinit var binding: ActivitySensorBinding
-    private lateinit var sensorManager: SensorManager
+    private lateinit var sm: SensorManager
     private lateinit var lightSensor: Sensor
     private lateinit var mp: MediaPlayer
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,20 +21,20 @@ class SensorActivity : AppCompatActivity(), SensorEventListener {
         binding = ActivitySensorBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
-        lightSensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)!!
+        sm = getSystemService(SENSOR_SERVICE) as SensorManager
+        lightSensor = sm.getDefaultSensor(Sensor.TYPE_LIGHT)!!
     }
 
     // Register your Sensor Manager
     override fun onResume() {
         super.onResume()
-        sensorManager.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL)
+        sm.registerListener(this, lightSensor, SensorManager.SENSOR_DELAY_NORMAL)
     }
 
     // Unregister your Sensor Manager
     override fun onPause() {
         super.onPause()
-        sensorManager.unregisterListener(this)
+        sm.unregisterListener(this)
     }
 
     // get sensor update and reading

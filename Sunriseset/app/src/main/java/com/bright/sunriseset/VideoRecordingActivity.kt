@@ -15,10 +15,10 @@ import com.bright.sunriseset.databinding.ActivityVideoRecordingBinding
 class VideoRecordingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityVideoRecordingBinding
-    private lateinit var mdController: MediaController
+    private lateinit var mc: MediaController
     private val captureCode = 101
 
-    private lateinit var camResult: ActivityResultLauncher<Intent>
+    private lateinit var cam: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -27,11 +27,11 @@ class VideoRecordingActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.recordButton.isEnabled = hasCamera()
 
-        mdController = MediaController(this)
-        mdController.setAnchorView(binding.videoView)
-        binding.videoView.setMediaController(mdController)
+        mc = MediaController(this)
+        mc.setAnchorView(binding.videoView)
+        binding.videoView.setMediaController(mc)
 
-        camResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        cam = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
                 binding.videoView.setVideoURI(it.data?.data)
                 binding.videoView.start()
@@ -39,7 +39,7 @@ class VideoRecordingActivity : AppCompatActivity() {
         }
 
         binding.recordButton.setOnClickListener {
-            camResult.launch(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
+            cam.launch(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
         }
     }
 

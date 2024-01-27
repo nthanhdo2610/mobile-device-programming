@@ -20,7 +20,8 @@ abstract class NoteDatabase : RoomDatabase() {
         //  means that this field is immediately made visible to other threads
         @Volatile
         private var instance: NoteDatabase? = null
-        private val LOCK = Any() // The root of the Kotlin class hierarchy. Every Kotlin class has [Any] as a superclass.
+        private val LOCK =
+            Any() // The root of the Kotlin class hierarchy. Every Kotlin class has [Any] as a superclass.
 
         /*  Help of ?: elvis operator check if the instance is not null return the instance,
             if it is null then synchronized block will  work, inside this also check null or not and call the function buildDatabase*/

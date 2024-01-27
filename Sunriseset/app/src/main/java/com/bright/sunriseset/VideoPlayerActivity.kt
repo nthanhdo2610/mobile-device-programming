@@ -9,7 +9,7 @@ import com.bright.sunriseset.databinding.ActivityVideoPlayerBinding
 class VideoPlayerActivity : AppCompatActivity() {
 
     private val videoPath = "https://www.demonuts.com/Demonuts/smallvideo.mp4"
-    private lateinit var mdController: MediaController
+    private lateinit var mc: MediaController
     private lateinit var binding: ActivityVideoPlayerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,9 +24,9 @@ class VideoPlayerActivity : AppCompatActivity() {
 
     private fun configureVideoView() {
         val videoView = findViewById<VideoView>(R.id.videoView)
-        mdController = MediaController(this)
-        mdController.setAnchorView(videoView)
-        videoView.setMediaController(mdController)
+        mc = MediaController(this)
+        mc.setAnchorView(videoView)
+        videoView.setMediaController(mc)
         videoView.setVideoPath(videoPath)
         videoView.start()
     }

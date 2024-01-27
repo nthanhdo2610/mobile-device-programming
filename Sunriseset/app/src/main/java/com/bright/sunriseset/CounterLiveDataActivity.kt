@@ -9,7 +9,7 @@ import com.bright.sunriseset.vm.CounterLiveDataViewModel
 
 class CounterLiveDataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCounterLiveDataBinding
-    private lateinit var counterVM: CounterLiveDataViewModel
+    private lateinit var countVM: CounterLiveDataViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -25,9 +25,9 @@ class CounterLiveDataActivity : AppCompatActivity() {
     private fun initViewModel() {
 
         // Livedata observer implementation
-        if (!::counterVM.isInitialized) {
-            counterVM = ViewModelProvider(this)[CounterLiveDataViewModel::class.java]
-            counterVM.counter.observe(this) {
+        if (!::countVM.isInitialized) {
+            countVM = ViewModelProvider(this)[CounterLiveDataViewModel::class.java]
+            countVM.counter.observe(this) {
                 binding.textViewCounter.text = it.toString()
             }
         }
@@ -35,6 +35,6 @@ class CounterLiveDataActivity : AppCompatActivity() {
 
 
     fun count(view: View) {
-        counterVM.updateCounter()
+        countVM.updateCounter()
     }
 }

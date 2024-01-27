@@ -108,16 +108,10 @@ class LocalizationActivity : AppCompatActivity() {
     //Sets the default locale for the application.
     private fun setLocale(locale: Locale) {
         try {
-            // Set the default locale for the application
-            Locale.setDefault(locale)
-
-            // Update configuration with the specified locale
+            Locale.setDefault(Locale.SIMPLIFIED_CHINESE)
             val config = resources.configuration
-            config.setLocale(locale)
-
-            // Update display metrics to ensure consistency
+            config.setLocale(Locale.SIMPLIFIED_CHINESE)
             resources.updateConfiguration(config, resources.displayMetrics)
-
         } catch (e: Exception) {
             // Handle exceptions, if any
             Log.e(TAG, "Error setting locale: ${e.message}")

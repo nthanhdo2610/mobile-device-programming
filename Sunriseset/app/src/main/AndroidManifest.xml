@@ -36,23 +36,23 @@
         <activity
                 android:name=".AudioRecordingActivity"
                 android:exported="false"/>
-<!--        <activity-->
-<!--                android:name=".VideoRecordingActivity"-->
-<!--                android:exported="false"/>-->
+        <activity
+                android:name=".VideoRecordingActivity"
+                android:exported="false"/>
         <activity
                 android:name=".AccessCameraGalleryActivity"
                 android:exported="false"/>
         <activity
                 android:name=".SharedPrefsActivity"
                 android:exported="false"/>
-        <activity
-                android:name=".LocalizationActivity"
-                android:exported="false"/>
+<!--        <activity-->
+<!--                android:name=".LocalizationActivity"-->
+<!--                android:exported="false"/>-->
         <activity
                 android:name=".VideoPlayerActivity"
                 android:exported="false"/>
         <activity
-                android:name=".VideoRecordingActivity"
+                android:name=".LocalizationActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

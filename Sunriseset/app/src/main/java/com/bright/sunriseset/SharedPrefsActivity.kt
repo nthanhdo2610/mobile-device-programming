@@ -11,8 +11,8 @@ import com.bright.sunriseset.vm.SharedPrefsViewModel
 class SharedPrefsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySharedPrefsBinding
-    private lateinit var sharedPrefsViewModel: SharedPrefsViewModel
-    private lateinit var counterLiveDataViewModel: CounterLiveDataViewModel
+    private lateinit var prefsViewModel: SharedPrefsViewModel
+    private lateinit var counterViewModel: CounterLiveDataViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -26,15 +26,15 @@ class SharedPrefsActivity : AppCompatActivity() {
     }
 
     private fun initViewModel() {
-        if (!::sharedPrefsViewModel.isInitialized) {
-            sharedPrefsViewModel = ViewModelProvider(this)[SharedPrefsViewModel::class.java]
-            sharedPrefsViewModel.initModel(this@SharedPrefsActivity)
+        if (!::prefsViewModel.isInitialized) {
+            prefsViewModel = ViewModelProvider(this)[SharedPrefsViewModel::class.java]
+            prefsViewModel.initModel(this)
         }
 
         // Livedata observer implementation
-        if (!::counterLiveDataViewModel.isInitialized) {
-            counterLiveDataViewModel = ViewModelProvider(this)[CounterLiveDataViewModel::class.java]
-            counterLiveDataViewModel.counter.observe(this) {
+        if (!::counterViewModel.isInitialized) {
+            counterViewModel = ViewModelProvider(this)[CounterLiveDataViewModel::class.java]
+            counterViewModel.counter.observe(this) {
                 binding.textViewCounter.text = it.toString()
             }
         }
@@ -43,8 +43,8 @@ class SharedPrefsActivity : AppCompatActivity() {
 
     fun savePref(view: View) {
         val text = binding.editTextPref.text.toString()
-        sharedPrefsViewModel.saveData("my_prefs", text)
-        binding.textViewPref.text = sharedPrefsViewModel.loadData("my_prefs")
-        counterLiveDataViewModel.updateCounter()
+        prefsViewModel.saveData("my_prefs", text)
+        binding.textViewPref.text = prefsViewModel.loadData("my_prefs")
+        counterViewModel.updateCounter()
     }
 }

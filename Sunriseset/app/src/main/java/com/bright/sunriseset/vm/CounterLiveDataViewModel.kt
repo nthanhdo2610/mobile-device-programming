@@ -14,5 +14,4 @@ class CounterLiveDataViewModel : ViewModel() {
     fun updateCounter() {
         counter.value = counter.value?.plus(1)
     }
-
 }
