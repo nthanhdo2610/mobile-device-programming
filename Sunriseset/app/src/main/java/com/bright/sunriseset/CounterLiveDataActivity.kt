@@ -1,13 +1,11 @@
 package com.bright.sunriseset
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import com.bright.sunriseset.databinding.ActivityCounterLiveDataBinding
-import com.bright.sunriseset.databinding.ActivitySharedPrefsBinding
 import com.bright.sunriseset.vm.CounterLiveDataViewModel
-import com.bright.sunriseset.vm.SharedPrefsViewModel
 
 class CounterLiveDataActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCounterLiveDataBinding
