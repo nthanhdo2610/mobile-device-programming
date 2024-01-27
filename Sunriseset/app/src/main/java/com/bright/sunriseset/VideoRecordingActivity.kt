@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.MediaController
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
@@ -16,10 +15,10 @@ import com.bright.sunriseset.databinding.ActivityVideoRecordingBinding
 class VideoRecordingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityVideoRecordingBinding
-    private var mediaController: MediaController? = null
+    private lateinit var mdController: MediaController
     private val captureCode = 101
 
-    private lateinit var cameraResult: ActivityResultLauncher<Intent>
+    private lateinit var camResult: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -28,19 +27,19 @@ class VideoRecordingActivity : AppCompatActivity() {
         setContentView(binding.root)
         binding.recordButton.isEnabled = hasCamera()
 
-        mediaController = MediaController(this)
-        mediaController!!.setAnchorView(binding.videoView)
-        binding.videoView.setMediaController(mediaController)
+        mdController = MediaController(this)
+        mdController.setAnchorView(binding.videoView)
+        binding.videoView.setMediaController(mdController)
 
-        cameraResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+        camResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == RESULT_OK) {
-                val videoUrl = it?.data?.data
-                binding.videoView.setVideoURI(videoUrl)
+                binding.videoView.setVideoURI(it.data?.data)
                 binding.videoView.start()
             }
         }
+
         binding.recordButton.setOnClickListener {
-            cameraResult.launch(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
+            camResult.launch(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
         }
     }
 
