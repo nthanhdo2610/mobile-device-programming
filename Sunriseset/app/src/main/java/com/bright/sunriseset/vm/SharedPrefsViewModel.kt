@@ -7,15 +7,17 @@ import androidx.lifecycle.ViewModel
 class SharedPrefsViewModel : ViewModel() {
 
     private lateinit var myPrefs: SharedPreferences
-
     fun initModel(context: Context) {
-        myPrefs = context.getSharedPreferences("myPrefs", Context.MODE_PRIVATE)
+        myPrefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
     }
 
     fun saveData(key: String, value: String) {
-        val editor = myPrefs.edit()
-        editor.putString(key, value)
-        editor.apply()
+        val ed = myPrefs.edit()
+        if (myPrefs.contains(key)) {
+            ed.remove(key)
+        }
+        ed.putString(key, value)
+        ed.apply()
     }
 
     fun loadData(key: String): String? {

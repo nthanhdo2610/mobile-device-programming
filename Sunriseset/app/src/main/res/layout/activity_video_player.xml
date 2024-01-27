@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         tools:context=".VideoPlayerActivity">
     <VideoView
-            android:id="@+id/videoView1"
+            android:id="@+id/videoView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintLeft_toLeftOf="parent"

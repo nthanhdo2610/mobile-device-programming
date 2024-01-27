@@ -1,15 +1,15 @@
 package com.bright.sunriseset
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.MediaController
+import androidx.appcompat.app.AppCompatActivity
 import com.bright.sunriseset.databinding.ActivityVideoPlayerBinding
 
 class VideoPlayerActivity : AppCompatActivity() {
 
     private var TAG = "VideoPlayer"
-    private var mediaController: MediaController? = null
+    private lateinit var mediaController: MediaController
     private lateinit var binding: ActivityVideoPlayerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,14 +23,15 @@ class VideoPlayerActivity : AppCompatActivity() {
     }
 
     private fun configureVideoView() {
-        binding.videoView1.setVideoPath("https://www.demonuts.com/Demonuts/smallvideo.mp4")
+        val videoView = binding.videoView
+        videoView.setVideoPath("https://www.demonuts.com/Demonuts/smallvideo.mp4")
         mediaController = MediaController(this)
-        mediaController?.setAnchorView(findViewById(R.id.videoView1))
-        binding.videoView1.setMediaController(mediaController)
-        binding.videoView1.setOnPreparedListener { mp ->
+        mediaController.setAnchorView(videoView)
+        videoView.setMediaController(mediaController)
+        videoView.setOnPreparedListener { mp ->
             mp.isLooping = true
-            Log.i(TAG, "Duration = " + binding.videoView1.duration)
+            Log.i(TAG, "Duration = " + videoView.duration)
         }
-        binding.videoView1.start()
+        videoView.start()
     }
 }
