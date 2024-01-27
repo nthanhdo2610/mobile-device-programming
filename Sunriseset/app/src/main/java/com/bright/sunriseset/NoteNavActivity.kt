@@ -8,19 +8,19 @@ import androidx.navigation.fragment.NavHostFragment
 class NoteNavActivity : AppCompatActivity() {
 
     // Declare Navigation Controller Object
-    private lateinit var noteNavController: NavController
+    private lateinit var navController: NavController
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note_nav)
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
-        noteNavController = navHostFragment.navController
+        navController = navHostFragment.navController
 
     }
 
     // override the onSupportNavigateUp() method to call navigateUp() in the navigation controller
     override fun onSupportNavigateUp(): Boolean {
-        return noteNavController.navigateUp()
+        return navController.navigateUp()
     }
 }
