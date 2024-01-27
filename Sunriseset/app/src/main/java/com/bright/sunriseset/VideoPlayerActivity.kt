@@ -8,7 +8,8 @@ import com.bright.sunriseset.databinding.ActivityVideoPlayerBinding
 
 class VideoPlayerActivity : AppCompatActivity() {
 
-    private var TAG = "VideoPlayer"
+    private val videoTag = "VideoPlayer"
+    private val videoPath = "https://www.demonuts.com/Demonuts/smallvideo.mp4"
     private lateinit var mediaController: MediaController
     private lateinit var binding: ActivityVideoPlayerBinding
 
@@ -24,13 +25,13 @@ class VideoPlayerActivity : AppCompatActivity() {
 
     private fun configureVideoView() {
         val videoView = binding.videoView
-        videoView.setVideoPath("https://www.demonuts.com/Demonuts/smallvideo.mp4")
+        videoView.setVideoPath(videoPath)
         mediaController = MediaController(this)
         mediaController.setAnchorView(videoView)
         videoView.setMediaController(mediaController)
         videoView.setOnPreparedListener { mp ->
             mp.isLooping = true
-            Log.i(TAG, "Duration = " + videoView.duration)
+            Log.i(videoTag, "Duration = " + videoView.duration)
         }
         videoView.start()
     }
