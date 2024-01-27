@@ -9,7 +9,7 @@ import com.bright.sunriseset.databinding.ActivityVideoPlayerBinding
 class VideoPlayerActivity : AppCompatActivity() {
 
     private var TAG = "VideoPlayer"
-    var mediaController: MediaController? = null
+    private var mediaController: MediaController? = null
     private lateinit var binding: ActivityVideoPlayerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,7 +25,8 @@ class VideoPlayerActivity : AppCompatActivity() {
     private fun configureVideoView() {
         binding.videoView1.setVideoPath("https://www.demonuts.com/Demonuts/smallvideo.mp4")
         mediaController = MediaController(this)
-        mediaController?.setAnchorView(binding.videoView1)
+        mediaController?.setAnchorView(findViewById(R.id.videoView1))
+        binding.videoView1.setMediaController(mediaController)
         binding.videoView1.setOnPreparedListener { mp ->
             mp.isLooping = true
             Log.i(TAG, "Duration = " + binding.videoView1.duration)

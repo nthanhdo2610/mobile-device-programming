@@ -21,9 +21,9 @@
             android:supportsRtl="true"
             android:theme="@style/Theme.Sunriseset"
             android:usesCleartextTraffic="true">
-        <!--        <activity-->
-        <!--                android:name=".SensorActivity"-->
-        <!--                android:exported="false"/>-->
+        <activity
+                android:name=".SensorActivity"
+                android:exported="false"/>
         <activity
                 android:name=".NoteNavActivity"
                 android:exported="false"/>
@@ -36,9 +36,9 @@
         <activity
                 android:name=".AudioRecordingActivity"
                 android:exported="false"/>
-        <activity
-                android:name=".VideoRecordingActivity"
-                android:exported="false"/>
+<!--        <activity-->
+<!--                android:name=".VideoRecordingActivity"-->
+<!--                android:exported="false"/>-->
         <activity
                 android:name=".AccessCameraGalleryActivity"
                 android:exported="false"/>
@@ -52,7 +52,7 @@
                 android:name=".VideoPlayerActivity"
                 android:exported="false"/>
         <activity
-                android:name=".SensorActivity"
+                android:name=".VideoRecordingActivity"
                 android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

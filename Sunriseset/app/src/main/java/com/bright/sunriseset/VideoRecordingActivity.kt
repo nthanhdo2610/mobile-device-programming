@@ -6,33 +6,46 @@ import android.content.pm.PackageManager
 import android.os.Bundle
 import android.provider.MediaStore
 import android.view.View
+import android.widget.MediaController
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.bright.sunriseset.databinding.ActivityVideoRecordingBinding
 
 class VideoRecordingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityVideoRecordingBinding
+    private var mediaController: MediaController? = null
     private val captureCode = 101
+
+    private lateinit var cameraResult: ActivityResultLauncher<Intent>
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         // Inflate the layout using View Binding
         binding = ActivityVideoRecordingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         binding.recordButton.isEnabled = hasCamera()
+
+        mediaController = MediaController(this)
+        mediaController!!.setAnchorView(binding.videoView)
+        binding.videoView.setMediaController(mediaController)
+
+        cameraResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
+            if (it.resultCode == RESULT_OK) {
+                val videoUrl = it?.data?.data
+                binding.videoView.setVideoURI(videoUrl)
+                binding.videoView.start()
+            }
+        }
+        binding.recordButton.setOnClickListener {
+            cameraResult.launch(Intent(MediaStore.ACTION_VIDEO_CAPTURE))
+        }
     }
 
     private fun hasCamera(): Boolean {
-        return packageManager.hasSystemFeature(
-            PackageManager.FEATURE_CAMERA_ANY
-        )
-    }
-
-    fun startRecording(view: View) {
-        val intent = Intent(MediaStore.ACTION_VIDEO_CAPTURE)
-        startActivityForResult(intent, captureCode)
+        return packageManager.hasSystemFeature(PackageManager.FEATURE_CAMERA_ANY)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

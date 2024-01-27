@@ -24,7 +24,7 @@ class AccessCameraGalleryActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // Get captured image from the Camera Intent to set on the ImageView UI
-        startForResultCamera = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { it ->
+        startForResultCamera = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it.resultCode == Activity.RESULT_OK && it.data != null) {
                 val extras = it.data!!.extras
                 val imageBitmap =
@@ -34,6 +34,7 @@ class AccessCameraGalleryActivity : AppCompatActivity() {
                 Toast.makeText(this, "Fail to retrieve", Toast.LENGTH_LONG).show()
             }
         }
+
         // Get the image from the Gallery using GetConent() from ActivityResultContract
         startForResultGalley = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) {
             if (it != null)
@@ -41,6 +42,7 @@ class AccessCameraGalleryActivity : AppCompatActivity() {
             else
                 Toast.makeText(this, "Fail to retrieve", Toast.LENGTH_LONG).show()
         }
+
         // Start taking picture by clicking Camera button from your activity
         binding.camera.setOnClickListener {
             val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
