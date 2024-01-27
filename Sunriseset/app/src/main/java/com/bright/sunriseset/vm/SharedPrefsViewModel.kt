@@ -3,12 +3,13 @@ package com.bright.sunriseset.vm
 import android.content.Context
 import android.content.SharedPreferences
 import androidx.lifecycle.ViewModel
+import com.bright.sunriseset.R
 
 class SharedPrefsViewModel : ViewModel() {
 
     private lateinit var myPrefs: SharedPreferences
     fun initModel(context: Context) {
-        myPrefs = context.getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        myPrefs = context.getSharedPreferences(context.getString(R.string.app_name), Context.MODE_PRIVATE)
     }
 
     fun saveData(key: String, value: String) {

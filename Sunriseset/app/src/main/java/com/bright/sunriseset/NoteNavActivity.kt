@@ -16,7 +16,6 @@ class NoteNavActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fragmentContainerView) as NavHostFragment
         navController = navHostFragment.navController
-
     }
 
     // override the onSupportNavigateUp() method to call navigateUp() in the navigation controller
